@@ -24,7 +24,7 @@ const CreatePost = () => {
 
     try {
       // Backend URL (Make sure your backend is running on port 3001)
-      const res = await axios.post("http://localhost:3001/api/posts/create", newPost);
+      const res = await axios.post("https://blog-project-1-21ox.onrender.com/api/posts/create", newPost);
       
       if (res.status === 200) {
         alert("Blog Published Successfully! 🎉");

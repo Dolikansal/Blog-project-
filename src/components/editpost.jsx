@@ -13,7 +13,7 @@ const EditPost = () => {
   // 1. Pehle purana data fetch karke form mein bharo
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await axios.get(`http://localhost:3001/api/posts/${id}`);
+      const res = await axios.get(`https://blog-project-1-21ox.onrender.com/api/posts/${id}`);
       setTitle(res.data.title);
       setContent(res.data.content);
       setCategory(res.data.category);
