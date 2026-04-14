@@ -12,7 +12,6 @@ const Login = () => <div className="p-20 text-center text-3xl">Login Page</div>;
 function App() {
   return (
     <BrowserRouter basename="/Blog-project-">
-    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -24,7 +23,6 @@ function App() {
         <Route path="/edit/:id" element={<EditPost />} />
       </Routes>
       <Footer />
-    </Router>
     </BrowserRouter>
   );
 }
