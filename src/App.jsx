@@ -11,7 +11,7 @@ const Login = () => <div className="p-20 text-center text-3xl">Login Page</div>;
 
 function App() {
   return (
-    <BrowserRouter basename="/Blog-project">
+    <BrowserRouter basename="/Blog-project-">
     <Router>
       <Navbar />
       <Routes>
