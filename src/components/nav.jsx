@@ -23,8 +23,8 @@ const Navbar = () => {
           <Link to="/create-post" className="text-green-600 font-bold hover:text-green-700 transition">
             Create Blog
           </Link>
-          <Link to="/login" className="bg-green-600 text-white px-5 py-2 rounded-full hover:bg-green-700 transition font-medium">
-            Login
+          <Link to="/signup" className="bg-green-600 text-white px-5 py-2 rounded-full hover:bg-green-700 transition font-medium">
+            signup
           </Link>
         </div>
       </div>

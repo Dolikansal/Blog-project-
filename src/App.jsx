@@ -7,11 +7,11 @@ import Contact from './components/contact';
 import CreatePost from './components/createpost';
 import Footer from './components/footer';
 import EditPost from './components/editpost';
-const Login = () => <div className="p-20 text-center text-3xl">Login Page</div>;
-
+import Signup from './components/signup';
+import Login from './components/login';
 function App() {
   return (
-    <BrowserRouter basename="/Blog-project-">
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/Blog-project-'}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,6 +21,7 @@ function App() {
         <Route path="/create-post" element={<CreatePost />} />
         <Route path="/login" element={<Login />} />
         <Route path="/edit/:id" element={<EditPost />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </BrowserRouter>
