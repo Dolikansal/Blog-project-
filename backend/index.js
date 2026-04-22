@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const postRoutes = require('./routes/postroute');
+const authRoutes = require('./routes/authroutes');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json()); // JSON data handle karne ke liye
 app.use('/api/posts', postRoutes);
+app.use('/api/auth', authRoutes)
 // Basic Route
 app.get('/', (req, res) => {
   res.send("GreenBlog Backend is running!");
