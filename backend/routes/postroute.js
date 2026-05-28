@@ -63,5 +63,23 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+router.get("/:id", async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+        const user = await User.findById(req.query.userId); // Frontend se userId bhejna hoga
+
+        if (post.isPremium && (!user || !user.isSubscribed)) {
+            // Hum sirf thoda sa content bhejenge (Preview)
+            return res.status(200).json({
+                ...post._doc,
+                content: post.content.substring(0, 100) + "...", // Sirf starting ka thoda content
+                locked: true
+            });
+        }
+        res.status(200).json(post);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 // File ke bilkul last mein ye hona chahiye
 module.exports = router;

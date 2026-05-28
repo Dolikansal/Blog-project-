@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { PenSquare, Image as ImageIcon, Send } from 'lucide-react';
+import { PenSquare, Image as ImageIcon, Send, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const CreatePost = () => {
@@ -8,27 +8,28 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('Technology');
-  const [coverImage, setCoverImage] = useState(''); // Added state for image
+  const [coverImage, setCoverImage] = useState(''); 
+  const [isPremium, setIsPremium] = useState(false);
   const navigate = useNavigate();
 
   // 2. Submit Handler
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Page refresh rokne ke liye
+    e.preventDefault(); 
 
     const newPost = {
       title,
       content,
       category,
-      coverImage
+      coverImage,
+      isPremium
     };
 
     try {
-      // Backend URL (Make sure your backend is running on port 3001)
       const res = await axios.post("https://blog-project-1-21ox.onrender.com/api/posts/create", newPost);
       
       if (res.status === 200) {
         alert("Blog Published Successfully! 🎉");
-        navigate("/"); // Redirect to Home
+        navigate("/"); 
       }
     } catch (err) {
       console.error("Error saving post:", err);
@@ -51,7 +52,6 @@ const CreatePost = () => {
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-          {/* --- FIX: Added onSubmit here --- */}
           <form onSubmit={handleSubmit} className="p-8 space-y-6">
             
             {/* Blog Title */}
@@ -110,6 +110,34 @@ const CreatePost = () => {
                 onChange={(e) => setContent(e.target.value)}
                 required
               ></textarea>
+            </div>
+
+            {/* --- NEW: Premium Content Lock Feature --- */}
+            <div className={`p-4 rounded-xl border transition-all duration-300 flex items-center justify-between ${
+              isPremium 
+                ? 'bg-amber-50/60 border-amber-200 shadow-sm' 
+                : 'bg-gray-50 border-gray-200'
+            }`}>
+              <div className="flex items-start gap-3">
+                <div className={`p-2 rounded-lg mt-0.5 ${isPremium ? 'bg-amber-500 text-white' : 'bg-gray-200 text-gray-500'}`}>
+                  <Lock size={18} />
+                </div>
+                <div>
+                  <label htmlFor="premium-checkbox" className="font-bold text-gray-800 cursor-pointer select-none block">
+                    Make this a Premium Post
+                  </label>
+                  <p className="text-xs text-gray-500 mt-0.5">
+                    Ise check karne par post locked ho jayegi aur sirf subscribed users hi ise padh sakenge.
+                  </p>
+                </div>
+              </div>
+              <input
+                id="premium-checkbox"
+                type="checkbox"
+                checked={isPremium}
+                onChange={(e) => setIsPremium(e.target.checked)}
+                className="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer accent-green-600"
+              />
             </div>
 
             {/* Action Buttons */}
