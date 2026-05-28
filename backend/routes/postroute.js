@@ -47,4 +47,18 @@ router.put('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-module.exports = router;
+
+// fetch post by id
+router.get("/:id", async (req, res) => {
+    try {
+        // Check karein ki id valid hai ya nahi (Mongoose validation)
+        const post = await Post.findById(req.params.id);
+        if (!post) {
+            return res.status(404).json({ message: "Post nahi mili!" });
+        }
+        res.status(200).json(post);
+    } catch (err) {
+        // Agar ID format galat hai (jaise length kam/zyada) toh 500 ki jagah focus karein
+        res.status(500).json({ message: "Internal Server Error or Invalid ID format", error: err });
+    }
+});

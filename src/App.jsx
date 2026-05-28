@@ -9,6 +9,7 @@ import Footer from './components/footer';
 import EditPost from './components/editpost';
 import Signup from './components/signup';
 import Login from './components/login';
+import PostDetail from './components/PostDetail';
 const AppContent = () => {
   const location = useLocation();
   const isAuthenticated = () => localStorage.getItem("user") !== null;
@@ -31,6 +32,7 @@ const AppContent = () => {
         <Route path="/services" element={isAuthenticated() ? <Services /> : <Navigate to="/signup" />} />
         <Route path="/contact" element={isAuthenticated() ? <Contact /> : <Navigate to="/signup" />} />
         <Route path="/create-post" element={isAuthenticated() ? <CreatePost /> : <Navigate to="/signup" />} />
+        <Route path="/post/:id" element={<PostDetail />} />
       </Routes>
 
       {!hideNavbarPaths.includes(location.pathname) && <Footer />}

@@ -18,6 +18,10 @@ const PostSchema = new mongoose.Schema({
         default: "",
     },
     // Baad mein hum ise User ID se connect karenge (Auth ke waqt)
+    isPremium: {
+        type: Boolean,
+        default: false
+    },
     author: {
         type: String, 
         default: "Anonymous"
