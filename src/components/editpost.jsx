@@ -25,7 +25,7 @@ const EditPost = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3001/api/posts/${id}`, {
+      await axios.put(`https://blog-project-1-21ox.onrender.com/api/posts/${id}`, {
         title, content, category
       });
       alert("Blog Update Ho Gaya! 🎉");

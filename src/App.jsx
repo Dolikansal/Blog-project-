@@ -33,6 +33,7 @@ const AppContent = () => {
         <Route path="/contact" element={isAuthenticated() ? <Contact /> : <Navigate to="/signup" />} />
         <Route path="/create-post" element={isAuthenticated() ? <CreatePost /> : <Navigate to="/signup" />} />
         <Route path="/post/:id" element={<PostDetail />} />
+        <Route path="/edit/:id" element={<EditPost />} />
       </Routes>
 
       {!hideNavbarPaths.includes(location.pathname) && <Footer />}
