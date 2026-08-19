@@ -38,6 +38,27 @@ This application serves as a complete publishing platform where users can explor
 - **Security & Auth:** JSON Web Tokens (JWT), Bcrypt.js (Password Hashing), CORS
 
 ---
+### Clone the Repository
+git clone [https://github.com/dolikansal/Blog-project-.git](https://github.com/dolikansal/Blog-project-.git)
+cd Blog-project-
+
+### Populate your .env file with the required variables:
+PORT=5000
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/blogDB?retryWrites=true&w=majority
+JWT_SECRET=your_super_secret_jwt_key_here
+CLIENT_URL=http://localhost:5173
+
+### Start the backend development server:
+
+### Using nodemon for auto-reload
+npm run dev
+
+### Standard node execution
+npm start
+
+### Start the Vite development server:
+npm run dev
+
 
 ## 📁 Project Structure
 
