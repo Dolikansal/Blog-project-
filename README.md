@@ -1,16 +1,61 @@
-# React + Vite
+# ✍️ MERN Stack Blog Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and feature-rich full-stack blogging platform built with **React, Vite, Node.js, Express, and MongoDB**. Designed to offer a seamless writing and reading experience with complete content management capabilities.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [https://dolikansal.github.io/Blog-project-/](https://dolikansal.github.io/Blog-project-/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🌟 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This application serves as a complete publishing platform where users can explore articles, publish their own blogs, and interact with content. It leverages a modern frontend architecture built on React and Vite for blazing-fast page loads, backed by a robust RESTful API.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features
+
+- **User Authentication & Profiles:** Secure registration, login, and token-based session handling (JWT).
+- **Post Creation & Rich Content:** Create, edit, and format rich-text blog posts with title, banner/cover images, and tags.
+- **Full CRUD Support:** Complete control to create, view, update, and delete personal blog posts.
+- **Dynamic Feed & Filtering:** Browse posts by categories, search by keywords, and view trending or recent stories.
+- **Responsive Layout:** Clean, mobile-first design adapted for mobile devices, tablets, and desktop screens.
+- **Fast Build & Asset Bundling:** Powered by Vite for optimized bundle size and quick load times.
+
+---
+
+## 🛠️ Tech Stack
+
+### **Frontend**
+- **Framework / Library:** React.js (via Vite)
+- **Styling:** CSS3 / Modern Flexbox & Grid
+- **Routing & State:** React Router DOM, React Hooks (`useState`, `useEffect`, `useContext`)
+- **Deployment:** GitHub Pages
+
+### **Backend & Database**
+- **Runtime:** Node.js
+- **Framework:** Express.js
+- **Database:** MongoDB (Mongoose ODM)
+- **Security & Auth:** JSON Web Tokens (JWT), Bcrypt.js (Password Hashing), CORS
+
+---
+
+## 📁 Project Structure
+
+```text
+├── client/                 # React Frontend (Vite Setup)
+│   ├── public/             # Static assets & icons
+│   ├── src/
+│   │   ├── components/     # Reusable UI elements (Navbar, Footer, PostCard)
+│   │   ├── pages/          # View pages (Home, CreatePost, PostDetails, Login)
+│   │   ├── context/        # State & auth context
+│   │   ├── App.jsx         # Main application routes
+│   │   └── main.jsx        # App entry point
+│   └── package.json
+│
+├── server/                 # Node/Express Backend (if in same repo)
+│   ├── controllers/        # Request handling logic
+│   ├── models/             # Mongoose schemas (User, Post)
+│   ├── routes/             # API endpoints (/api/auth, /api/posts)
+│   ├── middleware/         # Auth verification & error handlers
+│   └── server.js           # Server entry point
+└── README.md
